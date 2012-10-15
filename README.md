@@ -27,4 +27,4 @@ RegexTester is an Eclipse plugin which can be used to easily test regular expres
 
 ## Installlation
 
-Download the plugin jar and put it in your Eclipse plugin folder.
+[Download the plugin jar](https://github.com/sbrosinski/RegexTester/downloads) and put it in your Eclipse plugin folder.
