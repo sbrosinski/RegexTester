@@ -7,8 +7,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 
 import com.brosinski.eclipse.regex.RegExPlugin;
 import com.brosinski.eclipse.regex.view.RegExView;
-import com.brosinski.eclipse.regex.view.User;
-import com.brosinski.eclipse.regex.view.UserDAO;
 
 
 public class AboutAction extends Action {
