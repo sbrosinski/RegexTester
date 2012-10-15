@@ -7,7 +7,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 
 import com.brosinski.eclipse.regex.RegExPlugin;
 import com.brosinski.eclipse.regex.view.RegExView;
-import com.brosinski.eclipse.regex.view.Registration;
 import com.brosinski.eclipse.regex.view.User;
 import com.brosinski.eclipse.regex.view.UserDAO;
 
@@ -27,12 +26,10 @@ public class AboutAction extends Action {
     public void run() {
     	Dictionary d = RegExPlugin.getDefault().getBundle().getHeaders();
     	String version = (String) d.get(org.osgi.framework.Constants.BUNDLE_VERSION);
-      	
-    	User user = UserDAO.load();
     	
 		String msg = "Regular Expression Tester " + version + "\n";
-		msg += "(C) 2006 by Stephan Brosinski <sbrosinski@brosinski.com>\n\n";
-		msg += "Licenced to: \n";
+		msg += "(C) 2006-2012 by Stephan Brosinski <sbrosinski@gmail.com>\n\n";
+		msg += "https://github.com/sbrosinski/RegexTester \n";
 		
 
 		MessageDialog.openInformation(view.getSite().getShell(), "About RegexTester", msg);     
