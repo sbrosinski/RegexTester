@@ -9,14 +9,10 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.brosinski.eclipse.regex.view.Registration;
-import com.brosinski.eclipse.regex.view.UserDAO;
-
 
 public class RegExPlugin extends AbstractUIPlugin {
 
 	private static RegExPlugin plugin;
-	public static boolean PRO = true;
 	
 	//Resource bundle.
 	private ResourceBundle resourceBundle;
@@ -25,7 +21,13 @@ public class RegExPlugin extends AbstractUIPlugin {
 	 * The constructor.
 	 */
 	public RegExPlugin() {
-		super();
+	}
+
+	/**
+	 * This method is called upon plug-in activation
+	 */
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
 		plugin = this;
 		try {
 			resourceBundle = ResourceBundle.getBundle("com.brosinski.eclipse.regex.PluginResources");
@@ -35,16 +37,11 @@ public class RegExPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * This method is called upon plug-in activation
-	 */
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-	}
-
-	/**
 	 * This method is called when the plug-in is stopped
 	 */
 	public void stop(BundleContext context) throws Exception {
+		plugin = null;
+		resourceBundle = null;
 		super.stop(context);
 	}
 
@@ -103,14 +100,6 @@ public class RegExPlugin extends AbstractUIPlugin {
 		getPreferenceStore().setDefault("font.result.style", systemFont.getStyle());
 	}
 
-
-	public void checkRegistration() {
-//		if (Registration.isUserValid(UserDAO.load())) {
-//		    PRO = true;
-//		} else {
-//		    PRO = false;
-//		}
-	}
 	
 	public ImageDescriptor getImageDescriptor(String imageName) {
 		return imageDescriptorFromPlugin("com.brosinski.eclipse.regex", "icons/" + imageName);

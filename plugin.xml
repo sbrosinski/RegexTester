@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
-<plugin
-   id="com.brosinski.eclipse.regex"
-   name="RegEx Plug-in"
-   version="1.3.1"
-   provider-name="Stephan Brosinski"
-   class="com.brosinski.eclipse.regex.RegExPlugin">
-
-   <runtime>
-      <library name="regextester.jar">
-         <export name="*"/>
-      </library>
-   </runtime>
-   <requires>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.core.resources"/>
-   </requires>
+<plugin>
  
    <extension
          point="org.eclipse.ui.views">

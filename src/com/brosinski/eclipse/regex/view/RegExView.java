@@ -54,7 +54,6 @@ import com.brosinski.eclipse.regex.view.actions.AboutAction;
 import com.brosinski.eclipse.regex.view.actions.ClearAction;
 import com.brosinski.eclipse.regex.view.actions.NextMatchAction;
 import com.brosinski.eclipse.regex.view.actions.PrevMatchAction;
-import com.brosinski.eclipse.regex.view.actions.RegisterAction;
 import com.brosinski.eclipse.regex.view.actions.StandardTextFieldAction;
 import com.brosinski.eclipse.regex.view.actions.StyledTextActionHandler;
 
@@ -87,7 +86,7 @@ public class RegExView extends ViewPart implements SelectionListener,
 
     private IAction nextMatchAction;
 
-    private IAction clearAction, registerAction;
+    private IAction clearAction;
 
     private IPreferenceStore prefs;
     
@@ -116,7 +115,7 @@ public class RegExView extends ViewPart implements SelectionListener,
         regex.addRegExListener(this);
 
         ExpressionLoader.getInstance().addExpressionLoaderListener(this);
-        RegExPlugin.getDefault().checkRegistration();
+       
     }
 
     /* (non-Javadoc)
@@ -145,10 +144,10 @@ public class RegExView extends ViewPart implements SelectionListener,
 
         txt_RegExp = new StyledText(parent, SWT.LEFT | SWT.BORDER | SWT.SINGLE);
 
-        if (RegExPlugin.PRO) {
+      
             txt_RegExp.addKeyListener(new BracketMatchingKeyAdapter());
             txt_RegExp.addKeyListener(new AssistKeyAdapter());
-        }
+        
 
         txt_RegExp.addFocusListener(new FocusListener() {
 
@@ -217,12 +216,7 @@ public class RegExView extends ViewPart implements SelectionListener,
             mit_mReplace.setData(new Integer(RegExModel.MODE_REPLACE));
             mit_mReplace.addSelectionListener(this);
 
-        if (!RegExPlugin.PRO) {
-        	mit_mFind.setEnabled(true);
-        	mit_mMatch.setEnabled(false);
-			mit_mSplit.setEnabled(false);
-			mit_mReplace.setEnabled(false);
-    	}
+        
 
         // RegEx Menu Item: Copy As String Literal
         mit_CopyLiteral = new MenuItem(txt_RegExp.getMenu(), SWT.NONE);
@@ -252,9 +246,6 @@ public class RegExView extends ViewPart implements SelectionListener,
 				}});
         
         
-	    if (!RegExPlugin.PRO) {
-	    	mit_EvalSelection.setEnabled(false);
-    	}
         
         SashForm sashForm = new SashForm(parent, SWT.VERTICAL);
         sashForm.setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -360,10 +351,6 @@ public class RegExView extends ViewPart implements SelectionListener,
         prevMatchAction = new PrevMatchAction(this);
         clearAction = new ClearAction(this);
         
-        registerAction = new RegisterAction(this);
-        if (RegExPlugin.PRO) {
-            registerAction.setEnabled(false);
-        }
         
         aboutAction = new AboutAction(this);
 		
