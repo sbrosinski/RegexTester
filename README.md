@@ -25,6 +25,6 @@ RegexTester is an Eclipse plugin which can be used to easily test regular expres
 * Easy movement through matches: Choose "Previous Match" or "Next Match" and cycle through all matches found.
 * Polished and accessible user interface, everything is reachable via keyboard
 
-## Installlation
+## Installation
 
 [Download the plugin jar](https://github.com/sbrosinski/RegexTester/downloads) and put it in your Eclipse plugin folder.
