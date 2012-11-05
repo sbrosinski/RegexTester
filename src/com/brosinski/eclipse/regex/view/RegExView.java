@@ -149,6 +149,13 @@ public class RegExView extends ViewPart implements SelectionListener,
             txt_RegExp.addKeyListener(new AssistKeyAdapter());
         
 
+        // GRO: Store/Restore last input value from PreferenceStore
+        IPreferenceStore preferenceStore = RegExPlugin.getDefault().getPreferenceStore();
+        String preferenceKey = "txt_RegExp";
+        txt_RegExp.addFocusListener(new SaveLastValueToPreferenceStoreFocusAdapter(preferenceStore, preferenceKey));
+        txt_RegExp.setText(preferenceStore.getString(preferenceKey));
+        
+        
         txt_RegExp.addFocusListener(new FocusListener() {
 
             private int caretOffset;
@@ -269,6 +276,13 @@ public class RegExView extends ViewPart implements SelectionListener,
 
         txt_SearchText.setMenu(new Menu(parent.getShell()));
         setTextMenuItems(txt_SearchText);
+        
+        
+        // GRO: Store/Restore last input value from PreferenceStore 
+        preferenceKey = "txt_SearchText";
+        txt_SearchText.addFocusListener(new SaveLastValueToPreferenceStoreFocusAdapter(preferenceStore, preferenceKey));
+        txt_SearchText.setText(preferenceStore.getString(preferenceKey));
+
       
 
         txt_Result = new StyledText(sashForm, SWT.LEFT | SWT.MULTI
