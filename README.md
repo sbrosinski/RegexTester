@@ -1,8 +1,6 @@
 # RegexTester
 RegexTester is an Eclipse plugin which can be used to easily test regular expressions.
 
-![RegexTester](http://brosinski.com/regex2.png)
-
 ## Features
 
 * Test and search for regular expression
