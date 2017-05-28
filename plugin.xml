@@ -6,14 +6,14 @@
          point="org.eclipse.ui.views">
       <category
             name="RegEx Tester"
-            id="com.brosinski.eclipse.regex.cat">
+            id="org.eclipse.ui.regex.cat">
       </category>
       <view
             name="RegEx Tester"
             icon="icons/e.gif"
-            category="com.brosinski.eclipse.regex.cat"
-            class="com.brosinski.eclipse.regex.view.RegExView"
-            id="com.brosinski.eclipse.regex.view.RegExView">
+            category="org.eclipse.ui.regex.cat"
+            class="org.eclipse.ui.regex.view.RegExView"
+            id="org.eclipse.ui.regex.view.RegExView">
       </view>
    </extension>
    
@@ -23,8 +23,8 @@
          point="org.eclipse.ui.preferencePages">
       <page
             name="RegEx Tester"
-            class="com.brosinski.eclipse.regex.view.RegExPreferencePage"
-            id="com.brosinski.eclipse.regex.view.RegExPreferencePage">
+            class="org.eclipse.ui.regex.view.RegExPreferencePage"
+            id="org.eclipse.ui.regex.view.RegExPreferencePage">
       </page>
    </extension>
 
@@ -32,9 +32,9 @@
          point="org.eclipse.ui.preferencePages">
       <page
             name="Fonts"
-            class="com.brosinski.eclipse.regex.view.FontPreferencePage"
-            id="com.brosinski.eclipse.regex.view.FontPreferencePage"
-            category="com.brosinski.eclipse.regex.view.RegExPreferencePage">
+            class="org.eclipse.ui.regex.view.FontPreferencePage"
+            id="org.eclipse.ui.regex.view.FontPreferencePage"
+            category="org.eclipse.ui.regex.view.RegExPreferencePage">
             
       </page>
    </extension>
